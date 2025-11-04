@@ -1,10 +1,26 @@
 const phrases = [ 
-    "🔥 Get good, get [**Khanware**](https://github.com/Niximkk/khanware/)!",
-    "🤍 Made by [**@im.nix**](https://e-z.bio/sounix).",
-    "☄️ By [**Niximkk/khanware**](https://github.com/Niximkk/khanware/).",
-    "🌟 Star the project on [GitHub](https://github.com/Niximkk/khanware/)!",
-    "🦢 Nix é lindo e maravilhoso!"
+    "Qual é o resultado da soma 5 + 8?",
+    "Se subtrairmos 7 de 20, qual é o valor final? 20 - 7",
+    "Quanto é 4 x 6?",
+    "Qual é o resultado da divisão 30 ÷ 5?",
+    "Calcule a expressão: 10 - 2 + 5"
 ];
+
+const correctResponses = [
+    "13",
+    "12",
+    "24",
+    "6",
+    "13"
+]
+
+const incorrectReponses = [
+    "15",
+    "13",
+    "28",
+    "5",
+    "3"
+]
 
 const originalFetch = window.fetch;
 const correctAnswers = new Map();
@@ -60,15 +76,17 @@ window.fetch = async function(input, init) {
             }
             
             if (itemData.question.content?.[0] === itemData.question.content[0].toUpperCase()) {
+                const index = Math.floor(Math.random() * phrases.lenght)
+
                 itemData.answerArea = { calculator: false, chi2Table: false, periodicTable: false, tTable: false, zTable: false };
-                itemData.question.content = phrases[Math.floor(Math.random() * phrases.length)] + "\n\n**Onde você deve obter seus scripts?**" + `[[☃ radio 1]]`+ `\n\n**💎 Quer ter a sua mensagem lida para TODOS utilizando o Khanware?** \nFaça uma [Donate Aqui](https://livepix.gg/nixyy)!` ;
+                itemData.question.content = phrases[index];
                 itemData.question.widgets = {
                     "radio 1": {
                         type: "radio", alignment: "default", static: false, graded: true,
                         options: {
                             choices: [
-                                { content: "**I Can Say** e **Platform Destroyer**.", correct: true, id: "correct-choice" },
-                                { content: "Qualquer outro kibador **viado**.", correct: false, id: "incorrect-choice" }
+                                { content: correctResponses[index], correct: true, id: "correct-choice" },
+                                { content: incorrectReponses[index], correct: false, id: "incorrect-choice" }
                             ],
                             randomize: false, multipleSelect: false, displayCount: null, deselectEnabled: false
                         },
