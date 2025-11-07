@@ -28,8 +28,8 @@ const splashScreen = document.createElement('splashScreen');
 window.features = {
     questionSpoof: true,
     videoSpoof: true,
-    showAnswers: false,
-    autoAnswer: false,
+    showAnswers: true,
+    autoAnswer: true,
     customBanner: false,
     nextRecomendation: false,
     repeatQuestion: false,
@@ -45,10 +45,6 @@ window.featureConfigs = {
 /* Security */
 document.addEventListener('contextmenu', (e) => !window.disableSecurity && e.preventDefault());
 console.log(Object.defineProperties(new Error, { toString: {value() {(new Error).stack.includes('toString@') && location.reload();}}, message: {get() {location.reload();}}, }));
-
-/* Misc Styles */
-document.head.appendChild(Object.assign(document.createElement("style"),{innerHTML:"@font-face{font-family:'MuseoSans';src:url('https://corsproxy.io/?url=https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/ynddewua.ttf')format('truetype')}" }));
-document.head.appendChild(Object.assign(document.createElement('style'),{innerHTML:"::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #f1f1f1; } ::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: #555; }"}));
 
 /* Emmiter */
 class EventEmitter{constructor(){this.events={}}on(t,e){"string"==typeof t&&(t=[t]),t.forEach(t=>{this.events[t]||(this.events[t]=[]),this.events[t].push(e)})}off(t,e){"string"==typeof t&&(t=[t]),t.forEach(t=>{this.events[t]&&(this.events[t]=this.events[t].filter(t=>t!==e))})}emit(t,...e){this.events[t]&&this.events[t].forEach(t=>{t(...e)})}once(t,e){"string"==typeof t&&(t=[t]);let s=(...i)=>{e(...i),this.off(t,s)};this.on(t,s)}};
@@ -81,7 +77,6 @@ async function loadCss(url) { return new Promise((resolve) => { const link = doc
 /* Visual Functions */
 function setupMenu() {
     loadScript(repoPath+'visuals/mainMenu.js', 'mainMenu');
-    loadScript(repoPath+'visuals/statusPanel.js', 'statusPanel');
     loadScript(repoPath+'visuals/devTab.js', 'devTab');
 }
 
@@ -99,7 +94,6 @@ function setupMain(){
 
 /* Inject */
 async function loadAll() {
-    loadScript('https://raw.githubusercontent.com/adryd325/oneko.js/refs/heads/main/oneko.js', 'onekoJs').then(() => { onekoEl = document.getElementById('oneko'); onekoEl.style.backgroundImage = "url('https://raw.githubusercontent.com/adryd325/oneko.js/main/oneko.gif')"; onekoEl.style.display = "none"; });
     loadScript('https://cdn.jsdelivr.net/npm/darkreader@latest/darkreader.min.js', 'darkReaderPlugin').then(()=>{ DarkReader.setFetchMethod(window.fetch); })
     loadCss('https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css', 'toastifyCss');
     loadScript('https://cdn.jsdelivr.net/npm/toastify-js', 'toastifyPlugin')
@@ -118,4 +112,3 @@ async function loadAll() {
 }
 
 loadAll()
-
