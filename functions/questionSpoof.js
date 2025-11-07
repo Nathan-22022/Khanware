@@ -72,7 +72,6 @@ window.fetch = async function(input, init) {
             
             if (answers.length > 0) {
                 correctAnswers.set(item.id, answers);
-                sendToast(`📦 ${answers.length} resposta(s) capturada(s).`, 750);
             }
             
             if (itemData.question.content?.[0] === itemData.question.content[0].toUpperCase()) {
@@ -96,7 +95,6 @@ window.fetch = async function(input, init) {
                 
                 const modified = { ...data };
                 modified.data.assessmentItem.item.itemData = JSON.stringify(itemData);
-                sendToast("🔓 Questão exploitada.", 750);
                 return new Response(JSON.stringify(modified), { 
                     status: res.status, statusText: res.statusText, headers: res.headers 
                 });
@@ -145,7 +143,6 @@ window.fetch = async function(input, init) {
                 body = JSON.stringify(bodyObj);
                 if (input instanceof Request) input = new Request(input, { body });
                 else init.body = body;
-                sendToast(`✨ ${answers.length} resposta(s) aplicada(s).`, 750);
             }
         } catch (e) { debug(`🚨 Error @ questionSpoof.js\n${e}`); }
     }
