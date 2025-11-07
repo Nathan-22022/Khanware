@@ -28,16 +28,16 @@ const splashScreen = document.createElement('splashScreen');
 window.features = {
     questionSpoof: true,
     videoSpoof: true,
-    showAnswers: true,
-    autoAnswer: true,
+    showAnswers: false,
+    autoAnswer: false,
     customBanner: false,
     nextRecomendation: false,
     repeatQuestion: false,
-    minuteFarmer: false,
+    minuteFarmer: true,
     rgbLogo: false
 };
 window.featureConfigs = {
-    autoAnswerDelay: 3,
+    autoAnswerDelay: 5,
     customUsername: "",
     customPfp: ""
 };
@@ -85,10 +85,7 @@ function setupMain(){
     loadScript(repoPath+'functions/questionSpoof.js', 'questionSpoof');
     loadScript(repoPath+'functions/videoSpoof.js', 'videoSpoof');
     loadScript(repoPath+'functions/minuteFarm.js', 'minuteFarm');
-    loadScript(repoPath+'functions/spoofUser.js', 'spoofUser');
     loadScript(repoPath+'functions/answerRevealer.js', 'answerRevealer');
-    loadScript(repoPath+'functions/rgbLogo.js', 'rgbLogo');
-    loadScript(repoPath+'functions/customBanner.js', 'customBanner');
     loadScript(repoPath+'functions/autoAnswer.js', 'autoAnswer');
 }
 
@@ -112,3 +109,4 @@ async function loadAll() {
 }
 
 loadAll()
+
