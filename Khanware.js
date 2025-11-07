@@ -75,7 +75,6 @@ async function loadCss(url) { return new Promise((resolve) => { const link = doc
 function setupMenu() {
     loadScript(repoPath+'visuals/mainMenu.js', 'mainMenu');
     loadScript(repoPath+'visuals/statusPanel.js', 'statusPanel');
-    loadScript(repoPath+'visuals/donationOverlay.js', 'donationOverlay');
     loadScript(repoPath+'visuals/devTab.js', 'devTab');
 }
 
@@ -119,3 +118,4 @@ loadScript('https://cdn.jsdelivr.net/npm/toastify-js', 'toastifyPlugin')
     
     console.clear();
 });
+
