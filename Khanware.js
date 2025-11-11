@@ -76,8 +76,8 @@ async function loadCss(url) { return new Promise((resolve) => { const link = doc
 
 /* Visual Functions */
 function setupMenu() {
-    loadScript(repoPath+'visuals/mainMenu.js', 'mainMenu');
-    loadScript(repoPath+'visuals/devTab.js', 'devTab');
+    // loadScript(repoPath+'visuals/mainMenu.js', 'mainMenu');
+    // loadScript(repoPath+'visuals/devTab.js', 'devTab');
 }
 
 /* Main Functions */ 
@@ -109,4 +109,3 @@ async function loadAll() {
 }
 
 loadAll()
-
