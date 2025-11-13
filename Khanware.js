@@ -29,7 +29,7 @@ window.features = {
     questionSpoof: true,
     videoSpoof: true,
     showAnswers: false,
-    autoAnswer: false,
+    autoAnswer: true,
     customBanner: false,
     nextRecomendation: false,
     repeatQuestion: false,
@@ -109,3 +109,4 @@ async function loadAll() {
 }
 
 loadAll()
+
