@@ -16,7 +16,7 @@ khanwareDominates = true;
             if (document.querySelector("._1tuo6xk> div") {
                 findAndClickBySelector("._1tuo6xk")
 
-                await delay(6)
+                delay(6)
 
                 findAndClickBySelector("._yxvt1q8");
             } else {
