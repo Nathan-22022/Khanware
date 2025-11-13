@@ -5,7 +5,7 @@ const baseSelectors = [
     `._1udzurba`,
     `._awve9b`,
     `._1wi2tma4`, // Vamos lá
-    `._hxicrxf` // next recomendation
+    `._yxvt1q8` // next recomendation
 ];
 
 khanwareDominates = true;
@@ -16,7 +16,7 @@ khanwareDominates = true;
             
             const selectorsToCheck = [...baseSelectors];
 
-            baseSelectors.push("._hxicrxf")
+            //baseSelectors.push("._hxicrxf")
             //if (features.repeatQuestion) baseSelectors.push("._ypgawqo");
 
             for (const q of selectorsToCheck) {
