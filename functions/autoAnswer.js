@@ -3,7 +3,9 @@ const baseSelectors = [
     `[data-testid="exercise-check-answer"]`, 
     `[data-testid="exercise-next-question"]`, 
     `._1udzurba`,
-    `._awve9b`
+    `._awve9b`,
+    `._1wi2tma4`, // Vamos lá
+    `._hxicrxf` // next recomendation
 ];
 
 khanwareDominates = true;
